@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>National Parks</title>
+</head>
+<body>
+  <h2>List of National Parks</h2>
+  <ul th:each="park : ${parks}">
+    <li th:text="${park.address}"></li>
+    <li>
+      <span th:text="${park.city}"></span>
+      <span th:text="${park.state}"></span>
+    </li>
+    <li th:text="${park.zipcode}"></li>
+    <li th:text="${park.phoneNumber}"></li>
+  </ul>
+</body>
+</html>
