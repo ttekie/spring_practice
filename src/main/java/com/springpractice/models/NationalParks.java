@@ -1,4 +1,4 @@
-package com.springpractice.springpractice.models;
+package com.springpractice.models;
 
 import javax.persistence.*;
 
@@ -6,9 +6,12 @@ import javax.persistence.*;
 @Table(name="national_park")
 public class NationalParks {
     @Id
+    // this annotation will tell jpa that it will auto generate the primary key id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @Column(nullable = false, length=200)
+    private String name;
     @Column(nullable = false, length=100)
     private String address;
 
@@ -20,13 +23,15 @@ public class NationalParks {
 
     @Column(nullable = false, length=5)
     private String zipcode;
-    @Column(nullable = false, length= 100)
+
+    @Column(nullable = false, length=100)
     private String phoneNumber;
 
     public NationalParks() {
     }
 
-    public NationalParks(String address, String city, String state, String zipcode, String phoneNumber) {
+    public NationalParks(String name, String address, String city, String state, String zipcode, String phoneNumber) {
+        this.name = name;
         this.address = address;
         this.city = city;
         this.state = state;
@@ -40,6 +45,13 @@ public class NationalParks {
 
     public void setId(Long id) {
         this.id = id;
+    }
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 
     public String getAddress() {
